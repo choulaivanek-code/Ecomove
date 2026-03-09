@@ -19,8 +19,8 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ROOT_PASSWORD: ecomove123
-          MYSQL_DATABASE: ecomove
+          MYSQL_ROOT_PASSWORD:
+          MYSQL_DATABASE: root
         ports:
           - 3306:3306
         options: >-
@@ -38,7 +38,7 @@ jobs:
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          java-version: '21'
+          java-version: '17'
           distribution: 'temurin'
 
       - name: Cache Maven
@@ -70,7 +70,7 @@ jobs:
             -Dspring.datasource.password=ecomove123
 
       - name: Upload JaCoCo report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: jacoco-report
