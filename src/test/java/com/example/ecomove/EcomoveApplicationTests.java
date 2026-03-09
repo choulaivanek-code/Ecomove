@@ -2,18 +2,14 @@ package com.example.ecomove;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
-@TestPropertySource(properties = {
-        "spring.datasource.url=jdbc:mysql://localhost:3306/ecomove?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC",
-        "spring.datasource.username=root",
-        "spring.datasource.password=root",
-        "spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver"
-})
+@ActiveProfiles("test")
 class EcomoveApplicationTests {
 
     @Test
     void contextLoads() {
     }
+
 }
