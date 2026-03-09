@@ -91,5 +91,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/ecomove-api:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/ecomove-api:${{ github.sha }}
+            ${{ secrets.DOCKER_USERNAME }}/ecomove-api:latest
+            ${{ secrets.DOCKER_USERNAME }}/ecomove-api:${{ github.sha }}
