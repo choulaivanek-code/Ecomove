@@ -62,15 +62,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          mvn -B verify \
-            org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
-            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }} \
-            -Dsonar.host.url=https://sonarcloud.io \
-            -Dspring.datasource.url=jdbc:mysql://localhost:3306/ecomove?useSSL=false\&allowPublicKeyRetrieval=true\&serverTimezone=UTC \
-            -Dspring.datasource.username=root \
-            -Dspring.datasource.password=root \
-            -Dspring.profiles.active=test
+          run: mvn -B verify sonar:sonar -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }} -Dsonar.host.url=https://sonarcloud.io -Dspring.datasource.url=jdbc:mysql://localhost:3306/ecomove?useSSL=false\&allowPublicKeyRetrieval=true\&serverTimezone=UTC -Dspring.datasource.username=root -Dspring.datasource.password=root -Dspring.profiles.active=test
   docker:
     name: Docker Build & Push
     runs-on: ubuntu-latest
